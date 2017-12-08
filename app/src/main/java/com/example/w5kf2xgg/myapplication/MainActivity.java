@@ -2,6 +2,7 @@ package com.example.w5kf2xgg.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter(datumListForAdapter);
         Utilities utilities = new Utilities();
         String s = utilities.simpleText(this);
-
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
 
         Survey survey = new Gson().fromJson(s, Survey.class);
 
         List<Datum> datumList = survey.getResult().getData();
-        ArrayList<Object> datumListForAdapter = new ArrayList<>();
+        datumListForAdapter = new ArrayList<>();
         try {
             for (int i = 0; i < datumList.size(); i++) {
                 JSONObject jsonObject = new JSONObject();
@@ -62,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } finally {
+            bindDataToAdapter();
         }
-        bindDataToAdapter();
+
         Log.i("Hlp", "Help");
     }
 
