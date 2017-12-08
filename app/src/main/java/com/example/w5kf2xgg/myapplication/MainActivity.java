@@ -46,27 +46,24 @@ public class MainActivity extends AppCompatActivity {
 
         List<Datum> datumList = survey.getResult().getData();
         datumListForAdapter = new ArrayList<>();
-        try {
-            for (int i = 0; i < datumList.size(); i++) {
-                JSONObject jsonObject = new JSONObject();
-                if (datumList.get(i).getDatatype().equals("Template")) {
-                    jsonObject.put("question", datumList.get(i));
-                    jsonObject.put("comments", datumList.get(i + 1));
-                    datumListForAdapter.add(new Type1(jsonObject));
-                } else if (datumList.get(i).getDatatype().equals("Template - Radio")) {
-                    jsonObject.put("question", datumList.get(i));
-                    jsonObject.put("comments", datumList.get(i + 1));
-                    datumListForAdapter.add(new Type2(jsonObject));
-                } else if (datumList.get(i).getDatatype().equals("String - Comments")) {
-                    jsonObject.put("comments", datumList.get(i));
-                    datumListForAdapter.add(new Type3(jsonObject));
-                }
+
+        for (int i = 0; i < datumList.size(); i++) {
+            List<Datum> tempListDatum = new ArrayList<>();
+            if (datumList.get(i).getDatatype().equals("Template")) {
+                tempListDatum.add(datumList.get(i));
+                tempListDatum.add(datumList.get(i + 1));
+                datumListForAdapter.add(new Type1(tempListDatum));
+            } else if (datumList.get(i).getDatatype().equals("Template - Radio")) {
+                tempListDatum.add(datumList.get(i));
+                tempListDatum.add(datumList.get(i + 1));
+                datumListForAdapter.add(new Type2(tempListDatum));
+            } else if (datumList.get(i).getDatatype().equals("String - Comments")) {
+                tempListDatum.add(datumList.get(i));
+                datumListForAdapter.add(new Type3(tempListDatum));
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } finally {
-            bindDataToAdapter();
         }
+
+        bindDataToAdapter();
 
         Log.i("Hlp", "Help");
     }
