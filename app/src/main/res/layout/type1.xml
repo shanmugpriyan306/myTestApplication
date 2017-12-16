@@ -25,4 +25,20 @@
         android:layout_below="@id/type1Txt1"
         android:textColor="#000"
         android:textSize="12dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/type2Txt2">
+
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/type1_comments"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/radioGroup" />
 </RelativeLayout>

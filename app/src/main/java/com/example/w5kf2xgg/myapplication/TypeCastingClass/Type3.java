@@ -1,8 +1,6 @@
 package com.example.w5kf2xgg.myapplication.TypeCastingClass;
 
-import com.example.w5kf2xgg.myapplication.pojo.Datum;
-
-import org.json.JSONObject;
+import com.example.w5kf2xgg.myapplication.pojo.servey.question.Datum;
 
 import java.util.List;
 
@@ -11,9 +9,9 @@ import java.util.List;
  */
 
 public class Type3 {
-    public List<Datum> datumList;
+    public Datum datum;
 
-    public Type3(List<Datum> datumList) {
-        this.datumList = datumList;
+    public Type3(Datum datum) {
+        this.datum = datum;
     }
 }

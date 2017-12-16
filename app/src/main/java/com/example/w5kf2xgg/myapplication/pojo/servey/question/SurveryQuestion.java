@@ -1,10 +1,10 @@
 
-package com.example.w5kf2xgg.myapplication.pojo;
+package com.example.w5kf2xgg.myapplication.pojo.servey.question;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Survey {
+public class SurveryQuestion {
 
     @SerializedName("result")
     @Expose
@@ -17,4 +17,5 @@ public class Survey {
     public void setResult(Result result) {
         this.result = result;
     }
+
 }

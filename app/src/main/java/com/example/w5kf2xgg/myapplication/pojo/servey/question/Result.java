@@ -1,5 +1,5 @@
 
-package com.example.w5kf2xgg.myapplication.pojo;
+package com.example.w5kf2xgg.myapplication.pojo.servey.question;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

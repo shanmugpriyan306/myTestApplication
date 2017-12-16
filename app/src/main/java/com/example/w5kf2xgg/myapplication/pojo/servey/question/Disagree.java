@@ -1,11 +1,10 @@
 
-package com.example.w5kf2xgg.myapplication.pojo;
+package com.example.w5kf2xgg.myapplication.pojo.servey.question;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datum {
+public class Disagree {
 
     @SerializedName("question")
     @Expose
@@ -22,9 +21,6 @@ public class Datum {
     @SerializedName("order")
     @Expose
     private String order;
-    @SerializedName("option")
-    @Expose
-    private List<Option> option = null;
 
     public String getQuestion() {
         return question;
@@ -66,11 +62,4 @@ public class Datum {
         this.order = order;
     }
 
-    public List<Option> getOption() {
-        return option;
-    }
-
-    public void setOption(List<Option> option) {
-        this.option = option;
-    }
 }
